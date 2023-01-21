@@ -1,0 +1,30 @@
+﻿Mods: {
+	RandomBossSizes: {
+		Config: {
+			Label: "Config"
+			Header: {
+				GeneralOptions: "General Options (Note that these effect only affects when the npc is spawned in)"
+			}
+			MinScale: {
+				Label: "Minimum Size"
+				Tooltip: "How small the bosses can be scaled down from their original size."
+			}
+			MaxScale: {
+				Label: "Maximum Size"
+				Tooltip: "How big the bosses can be scaled up from their original size."
+			}
+			IncludeBossParts: {
+				Label: "Include Boss Parts"
+				Tooltip: "Should the parts of the boss also be scaled up, like Skeletron's hands?"
+			}
+			IncludeAllEnemies: {
+				Label: "Include All Enemies?"
+				Tooltip: "If true, then all enemies will be scaled randomly."
+			}
+			IncludeAllFriendlyNPCs: {
+				Label: "Include All Friendly NPCs?"
+				Tooltip: "If true, then all friendly NPCs will be scaled randomly."
+			}
+		}
+	}
+}
