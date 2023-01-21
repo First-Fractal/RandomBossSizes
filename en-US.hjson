@@ -3,7 +3,7 @@
 		Config: {
 			Label: "Config"
 			Header: {
-				GeneralOptions: "General Options (Note that these effect only affects when the npc is spawned in)"
+				GeneralOptions: "General Options (Note that these effect only affects when the NPC is spawned in)"
 			}
 			MinScale: {
 				Label: "Minimum Size"
