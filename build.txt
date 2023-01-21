@@ -1,0 +1,3 @@
+displayName = Random Bosses Sizes
+author = First Fractal
+version = 0.1
