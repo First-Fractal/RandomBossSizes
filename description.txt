@@ -7,5 +7,7 @@ If you are a Terraria Content Creator that is going to use this mod, please give
 
 Change Log
 ---------------------------------------
+v1.1: 
+Fixed a bug where all segements of the EoW is forced to be the same size so EoW wont randomly despawn when split. Forced King Slime to be a random size. It kinda works ;)
 v 1.0:
 Relased the mod.

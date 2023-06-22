@@ -8,16 +8,21 @@ namespace RandomBossSizes
 {
 	public class RandomBossSizes : Mod
 	{
-	}
+        public bool KingSlimeAlive = false;
+        public bool EOWalive = false;
+        public float KingSlimeScale = 0;
+    }
 
     public class ModifyNPCS : GlobalNPC
     {
-
+        static RandomBossSizes RBS = new RandomBossSizes();
+        static float EOWscale = 0;
         static int[] BossParts = { NPCID.SlimeSpiked, NPCID.ServantofCthulhu, NPCID.EaterofWorldsHead, NPCID.EaterofWorldsBody, NPCID.EaterofWorldsTail, NPCID.Creeper, NPCID.SkeletronHand, NPCID.SkeletronHead, NPCID.WallofFleshEye, NPCID.TheDestroyer, NPCID.TheDestroyerBody, NPCID.TheDestroyerTail, NPCID.Probe, NPCID.PrimeCannon, NPCID.PrimeLaser, NPCID.PrimeSaw, NPCID.PrimeVice, NPCID.PlanterasHook, NPCID.PlanterasTentacle, NPCID.GolemFistLeft, NPCID.GolemFistRight, NPCID.GolemHead, NPCID.GolemHeadFree, NPCID.CultistTablet, NPCID.CultistBossClone, NPCID.LunarTowerNebula, NPCID.LunarTowerSolar, NPCID.LunarTowerVortex, NPCID.LunarTowerStardust, NPCID.MoonLordCore, NPCID.MoonLordHand, NPCID.MoonLordHead, NPCID.MoonLordFreeEye, NPCID.MoonLordLeechBlob };
         public override void SetDefaults(NPC npc)
         {
             float randomSize = Main.rand.NextFloat(Config.Instance.minScale, Config.Instance.maxScale);
             bool scale = false;
+            RBS.EOWalive = false;
             if (npc.boss)
             {
                 scale = true;
@@ -30,6 +35,23 @@ namespace RandomBossSizes
                     if (npc.type == bosspart)
                     {
                         scale = true;
+                    }
+
+                    if (npc.type == NPCID.KingSlime)
+                    {
+                        RBS.KingSlimeAlive = true;
+                    }
+                    else
+                    {
+                        RBS.KingSlimeScale = Main.rand.NextFloat(Config.Instance.minScale, Config.Instance.maxScale);
+                    }
+
+                    if (npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail)
+                    {
+                        RBS.EOWalive = true;
+                    } else
+                    {
+                        EOWscale = Main.rand.NextFloat(Config.Instance.minScale, Config.Instance.maxScale);
                     }
                 }
             }
@@ -46,9 +68,29 @@ namespace RandomBossSizes
 
             if (scale)
             {
-                npc.scale = randomSize;
+                if (RBS.EOWalive == false)
+                {
+                    npc.scale = randomSize;
+                } else
+                {
+                    npc.scale = EOWscale;
+                }
             }
             base.SetDefaults(npc);
+        }
+
+        public override void PostAI(NPC npc)
+        {
+            if (npc.type == NPCID.KingSlime)
+            {
+                npc.scale = RBS.KingSlimeScale;
+            }
+
+            if (npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.EaterofWorldsBody || npc.type == NPCID.EaterofWorldsTail)
+            {
+                RBS.EOWalive = false;
+            }
+            base.PostAI(npc);
         }
     }
 
