@@ -8,7 +8,7 @@ You can config the min/max random scale range, include boss parts (Skeletron Han
 If you are a Terraria Content Creator that is going to use this mod, please give me proper credit by mention that I was the one who made it, and that you link my channel (https://www.youtube.com/@first_fractal), mod, or website (https://firstfractal.com) in the description.
 
 # Steam Workshop
-[Download it here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[Download it here](https://steamcommunity.com/sharedfiles/filedetails/?id=2988441276)
 
 # Change Log
 v1.1: 
